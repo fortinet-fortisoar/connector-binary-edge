@@ -77,6 +77,7 @@ def get_dns_details(config, params):
     endpoint = '/v2/query/domains/dns/{0}'.format(params.get('domain'))
     return obj.make_api_call(endpoint=endpoint)
 
+
 def _check_health(config):
     try:
         obj = BinaryEdge(config)

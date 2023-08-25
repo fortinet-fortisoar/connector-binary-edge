@@ -9,7 +9,7 @@
     "cs_compatible": true,
     "cs_approved": false,
     "category": "Threat Intelligence",
-    "help_online": "https://github.com/jitesh-spryiq/connector-binaryedge/blob/develop/docs/BinaryEdgeConnectorDoc.md",
+    "help_online": "https://github.com/fortinet-fortisoar/connector-binaryedge/blob/release/1.0.0/docs/BinaryEdgeConnectorDoc.md",
     "configuration": {
         "fields": [
             {
@@ -42,7 +42,7 @@
         {
             "title": "Get Host Details",
             "operation": "get_host_details",
-            "description": "List of recent events for the specified host, including details of exposed ports and services.",
+            "description": "Retrieves the recent events for the specified host, including details of exposed ports and services.",
             "annotation": "get_host_details",
             "category": "investigation",
             "parameters": [
@@ -54,9 +54,9 @@
                     "visible": true,
                     "editable": true,
                     "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the ip address that you want to retrieve from binaryedge.",
-                    "tooltip": "Specify the ip address that you want to retrieve from binaryedge."
+                    "placeholder": "e.g: x.x.x.x",
+                    "description": "Specify the ip address whose details you want to retrieve from BinaryEdge.",
+                    "tooltip": "Specify the ip address whose details you want to retrieve from BinaryEdge."
                 }
             ],
             "output_schema": [
@@ -143,7 +143,7 @@
         {
             "title": "Get IP Risk Score Details",
             "operation": "get_ip_risk_score_details",
-            "description": "Details about Scoring is based on all information found on our databases regarding an IP and refers to the level of exposure of a target, i.e, the higher the score, the greater the risk of exposure..",
+            "description": "Retrieves a report from BinaryEdge for the IP address submitted. Scoring is based on all information found on BinaryEdge databases regarding an IP and refers to the level of exposure of a target, i.e, the higher the score, the greater the risk of exposure.",
             "annotation": "get_ip_risk_score_details",
             "category": "investigation",
             "parameters": [
@@ -155,9 +155,9 @@
                     "visible": true,
                     "editable": true,
                     "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the ip address that you want to retrieve from binaryedge.",
-                    "tooltip": "Specify the ip address that you want to retrieve from binaryedge."
+                    "placeholder": "e.g: x.x.x.x",
+                    "description": "Specify the ip address whose risk score you want to retrieve from BinaryEdge.",
+                    "tooltip": "Specify the ip address whose risk score you want to retrieve from BinaryEdge."
                 }
             ],
             "output_schema": [
@@ -398,10 +398,10 @@
             ]
         },
         {
-            "title": "Get List Of Affect CVE Details",
+            "title": "Get CVEs List",
             "operation": "get_list_of_affect_cve_details",
-            "description": "Retrieve list of CVEs that migh affect a specific IP.",
-            "annotation": "get_list_of_affect_cve_details",
+            "description": "Retrieves list of CVEs that might affect a specific IP.",
+            "annotation": "get_cves_list",
             "category": "investigation",
             "parameters": [
                 {
@@ -412,9 +412,9 @@
                     "visible": true,
                     "editable": true,
                     "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the ip address that you want to retrieve from binaryedge.",
-                    "tooltip": "Specify the ip address that you want to retrieve from binaryedge."
+                    "placeholder": "e.g: x.x.x.x",
+                    "description": "Specify the ip address to retrieve the list of CVEs that might affect it.",
+                    "tooltip": "Specify the ip address to retrieve the list of CVEs that might affect it."
                 }
             ],
             "output_schema": [
@@ -451,8 +451,8 @@
                     "editable": true,
                     "value": "",
                     "placeholder": "e.g:google.com",
-                    "description": "Specify the domain that you want to retrieve from binaryedge.",
-                    "tooltip": "Specify the domain that you want to retrieve from binaryedge."
+                    "description": "Specify the domain whose subdomains you want to retrieve from BinaryEdge.",
+                    "tooltip": "Specify the domain whose subdomains you want to retrieve from BinaryEdge."
                 }
             ],
             "output_schema": [
@@ -481,8 +481,8 @@
                     "editable": true,
                     "value": "",
                     "placeholder": "e.g:google.com",
-                    "description": "Specify the domain that you want to retrieve from binaryedge.",
-                    "tooltip": "Specify the domain that you want to retrieve from binaryedge."
+                    "description": "Specify the domain whose DNS details you want to retrieve from BinaryEdge.",
+                    "tooltip": "Specify the domain whose DNS details you want to retrieve from BinaryEdge."
                 }
             ],
             "output_schema": [
