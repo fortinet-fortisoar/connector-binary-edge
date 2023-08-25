@@ -1,0 +1,429 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "0dc11a05-c825-4334-a754-e546d05043a6",
+      "@type": "WorkflowCollection",
+      "name": "Sample - BinaryEdge - 1.0.0",
+      "description": "Binaryedge helps to automatically scan the entire public internet, create real-time threat intelligence feeds or security reports that show the exposure of what is connected to the internet.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Binaryedge",
+        "binaryedge"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "8425f832-3b5e-47f5-ab74-074d81b6066a",
+          "collection": "/api/3/workflow_collections/0dc11a05-c825-4334-a754-e546d05043a6",
+          "triggerLimit": null,
+          "description": "List of recent events for the specified host, including details of exposed ports and services.",
+          "name": "Get Host Details",
+          "tag": "#BinaryEdge",
+          "recordTags": [
+            "Binaryedge",
+            "binaryedge"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6381560f-fe11-4c86-ae30-ca33cc28c93d",
+          "steps": [
+            {
+              "uuid": "6381560f-fe11-4c86-ae30-ca33cc28c93d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "4103081f-bce2-4f05-8d45-dd5d97dd3220",
+                "title": "BinaryEdge: Get Host Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "4121fd65-15c4-48d6-be1b-b3ad72bc655c",
+              "@type": "WorkflowStep",
+              "name": "Get Host Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BinaryEdge",
+                "config": "''",
+                "params": {
+                  "ip_address": ""
+                },
+                "version": "1.0.0",
+                "connector": "binaryedge",
+                "operation": "get_host_details",
+                "operationTitle": "Get Host Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "8af37bd0-3dbb-48ff-9a39-c659799e3fdb",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Host Details",
+              "sourceStep": "/api/3/workflow_steps/6381560f-fe11-4c86-ae30-ca33cc28c93d",
+              "targetStep": "/api/3/workflow_steps/4121fd65-15c4-48d6-be1b-b3ad72bc655c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3595d35f-7127-44f5-b3e6-e7f3b8fddee2",
+          "collection": "/api/3/workflow_collections/0dc11a05-c825-4334-a754-e546d05043a6",
+          "triggerLimit": null,
+          "description": "Details about Scoring is based on all information found on our databases regarding an IP and refers to the level of exposure of a target, i.e, the higher the score, the greater the risk of exposure..",
+          "name": "Get IP Risk Score Details",
+          "tag": "#BinaryEdge",
+          "recordTags": [
+            "Binaryedge",
+            "binaryedge"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2acc3b1a-d621-45e2-a2ab-9ef655a2cc56",
+          "steps": [
+            {
+              "uuid": "2acc3b1a-d621-45e2-a2ab-9ef655a2cc56",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "f9fa17cc-2ced-49cb-bafd-dee000ce4f66",
+                "title": "BinaryEdge: Get IP Risk Score Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "68be1886-7622-44a4-be99-9b55753c60f3",
+              "@type": "WorkflowStep",
+              "name": "Get IP Risk Score Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BinaryEdge",
+                "config": "''",
+                "params": {
+                  "ip_address": ""
+                },
+                "version": "1.0.0",
+                "connector": "binaryedge",
+                "operation": "get_ip_risk_score_details",
+                "operationTitle": "Get IP Risk Score Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "56cb5074-6f27-4a31-a798-aefe940640d9",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get IP Risk Score Details",
+              "sourceStep": "/api/3/workflow_steps/2acc3b1a-d621-45e2-a2ab-9ef655a2cc56",
+              "targetStep": "/api/3/workflow_steps/68be1886-7622-44a4-be99-9b55753c60f3"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ff1fe05f-9f72-44e3-897a-ed862cd9974c",
+          "collection": "/api/3/workflow_collections/0dc11a05-c825-4334-a754-e546d05043a6",
+          "triggerLimit": null,
+          "description": "Retrieve list of CVEs that migh affect a specific IP.",
+          "name": "Get List Of Affect CVE Details",
+          "tag": "#BinaryEdge",
+          "recordTags": [
+            "Binaryedge",
+            "binaryedge"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b3b5eaf8-7e10-411b-980e-6c447560135d",
+          "steps": [
+            {
+              "uuid": "b3b5eaf8-7e10-411b-980e-6c447560135d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "66c44036-3a3d-47dd-b219-4a6cebc080be",
+                "title": "BinaryEdge: Get List Of Affect CVE Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "048d79d7-0e41-4642-be34-1eaa03de8213",
+              "@type": "WorkflowStep",
+              "name": "Get List Of Affect CVE Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BinaryEdge",
+                "config": "''",
+                "params": {
+                  "ip_address": ""
+                },
+                "version": "1.0.0",
+                "connector": "binaryedge",
+                "operation": "get_list_of_affect_cve_details",
+                "operationTitle": "Get List Of Affect CVE Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "4ad96311-969c-4f45-b8b1-929655118528",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get List Of Affect CVE Details",
+              "sourceStep": "/api/3/workflow_steps/b3b5eaf8-7e10-411b-980e-6c447560135d",
+              "targetStep": "/api/3/workflow_steps/048d79d7-0e41-4642-be34-1eaa03de8213"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ffb30977-3942-457d-9c9b-24cd8682e9ae",
+          "collection": "/api/3/workflow_collections/0dc11a05-c825-4334-a754-e546d05043a6",
+          "triggerLimit": null,
+          "description": "Return list of subdomains known from the target domains.",
+          "name": "Get Subdomain Details",
+          "tag": "#BinaryEdge",
+          "recordTags": [
+            "Binaryedge",
+            "binaryedge"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9127d197-f9c8-4610-aa52-afb9844d73e7",
+          "steps": [
+            {
+              "uuid": "9127d197-f9c8-4610-aa52-afb9844d73e7",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "badcc1d0-4e20-4256-8f9f-2093b9f59dd6",
+                "title": "BinaryEdge: Get Subdomain Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "1551f0bf-b5f6-4079-bf44-149a9258bc0a",
+              "@type": "WorkflowStep",
+              "name": "Get Subdomain Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BinaryEdge",
+                "config": "''",
+                "params": {
+                  "domain": ""
+                },
+                "version": "1.0.0",
+                "connector": "binaryedge",
+                "operation": "get_subdomain_details",
+                "operationTitle": "Get Subdomain Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ef1c23bd-910f-490b-a7bb-127649f8fa6e",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Subdomain Details",
+              "sourceStep": "/api/3/workflow_steps/9127d197-f9c8-4610-aa52-afb9844d73e7",
+              "targetStep": "/api/3/workflow_steps/1551f0bf-b5f6-4079-bf44-149a9258bc0a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3a068f39-efa2-43b7-a0d6-463869248410",
+          "collection": "/api/3/workflow_collections/0dc11a05-c825-4334-a754-e546d05043a6",
+          "triggerLimit": null,
+          "description": "Return list of known DNS results for the target domain.",
+          "name": "Get DNS Details",
+          "tag": "#BinaryEdge",
+          "recordTags": [
+            "Binaryedge",
+            "binaryedge"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9487f7b9-16d5-4c1c-b5e0-5fe5b67df97e",
+          "steps": [
+            {
+              "uuid": "9487f7b9-16d5-4c1c-b5e0-5fe5b67df97e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "57dac3ff-70cc-434e-b545-69d7dff95298",
+                "title": "BinaryEdge: Get DNS Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ef317c8b-42c7-4383-b727-9fda949a56d6",
+              "@type": "WorkflowStep",
+              "name": "Get DNS Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BinaryEdge",
+                "config": "''",
+                "params": {
+                  "domain": ""
+                },
+                "version": "1.0.0",
+                "connector": "binaryedge",
+                "operation": "get_dns_details",
+                "operationTitle": "Get DNS Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ec6f6190-13ae-4de5-8e14-218532131e42",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get DNS Details",
+              "sourceStep": "/api/3/workflow_steps/9487f7b9-16d5-4c1c-b5e0-5fe5b67df97e",
+              "targetStep": "/api/3/workflow_steps/ef317c8b-42c7-4383-b727-9fda949a56d6"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
