@@ -16,6 +16,7 @@ class BinaryEdge(object):
         self.headers = {'accept': 'application/json', 'X-Key': self.api_key}
         if not self.server_url.startswith('https://'):
             self.server_url = 'https://{0}/'.format(self.server_url)
+        self.verify_ssl = config.get('verify_ssl')
 
     def make_api_call(self, endpoint=None, method='GET', headers=None, health_check=False):
         url = self.server_url + endpoint
@@ -24,7 +25,7 @@ class BinaryEdge(object):
             self.headers.update(headers)
         try:
             logger.debug('Making a request with {0} method and {1} headers.'.format(method, self.headers))
-            response = requests.request(method, url, headers=self.headers)
+            response = requests.request(method, url, headers=self.headers, verify=self.verify_ssl)
             if response.status_code in [200]:
                 if health_check:
                     return response
